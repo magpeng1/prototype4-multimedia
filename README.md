@@ -42,16 +42,28 @@ npm start
 
 ## Deployment to Vercel
 
-1. Build the project:
+### Fixed Deployment Issues ✅
+
+The app has been updated to fix Vercel deployment errors:
+- Removed custom Tailwind color classes that caused build failures
+- Replaced `@apply` directives with standard CSS
+- Simplified Tailwind configuration
+- Used inline styles for custom colors to ensure compatibility
+
+### Deploy Steps
+
+1. Build the project locally to test:
 ```bash
+npm install
 npm run build
 ```
 
 2. Deploy to Vercel:
    - Connect your GitHub repository to Vercel
    - Vercel will automatically detect it's a React app
-   - Set build command to `npm run build`
-   - Set output directory to `build`
+   - Framework Preset: **Create React App**
+   - Build Command: `npm run build`
+   - Output Directory: `build`
    - Deploy!
 
 Alternatively, use Vercel CLI:

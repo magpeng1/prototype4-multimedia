@@ -11,14 +11,55 @@
 
 @layer components {
   .media-card {
-    @apply bg-white rounded-xl p-4 shadow-soft border border-cream-200 transition-all duration-200 hover:shadow-soft-lg;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  }
+  
+  .media-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   
   .btn-primary {
-    @apply bg-sage-500 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-sage-600 focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    background-color: #5f7a5f;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4a6b4a;
+  }
+  
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #5f7a5f;
   }
   
   .btn-secondary {
-    @apply bg-cream-200 text-sage-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-cream-300 focus:outline-none focus:ring-2 focus:ring-cream-300 focus:ring-offset-2;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    background-color: #faf2e1;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #f5e8d0;
+  }
+  
+  .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #f5e8d0;
   }
 }

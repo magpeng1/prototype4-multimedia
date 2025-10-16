@@ -125,21 +125,22 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-cream-50 p-4">
+    <div className="min-h-screen p-4" style={{backgroundColor: '#fefdf8'}}>
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-sage-700 mb-2">Journl</h1>
-          <p className="text-sage-500">Capture your thoughts and memories</p>
+          <h1 className="text-3xl font-bold mb-2" style={{color: '#5f7a5f'}}>Journl</h1>
+          <p className="text-gray-600">Capture your thoughts and memories</p>
         </div>
 
         {/* Main Journal Entry */}
-        <div className="bg-white rounded-2xl shadow-soft p-6 mb-6">
+        <div className="bg-white rounded-2xl p-6 mb-6" style={{boxShadow: '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)'}}>
           <textarea
             value={journalText}
             onChange={(e) => setJournalText(e.target.value)}
             placeholder="What's on your mind today?"
-            className="w-full h-40 p-4 border border-cream-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent text-gray-700 placeholder-gray-400"
+            className="w-full h-40 p-4 border border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:border-transparent text-gray-700 placeholder-gray-400"
+            style={{'--tw-ring-color': '#a3b5a3'}}
           />
           
           {/* Media Items */}
@@ -170,30 +171,30 @@ function App() {
                   
                   {item.type === 'link' && (
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-cream-100 rounded-lg flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-lg flex items-center justify-center" style={{backgroundColor: '#fdf9f0'}}>
                         {item.favicon ? (
                           <img src={item.favicon} alt="" className="w-8 h-8" />
                         ) : (
-                          <ExternalLink size={24} className="text-sage-500" />
+                          <ExternalLink size={24} className="text-gray-500" />
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">{item.title}</p>
-                        <p className="text-xs text-sage-500 truncate">{item.url}</p>
+                        <p className="text-xs text-gray-500 truncate">{item.url}</p>
                       </div>
                     </div>
                   )}
                   
                   {item.type === 'document' && (
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-cream-100 rounded-lg flex items-center justify-center text-2xl">
+                      <div className="w-16 h-16 rounded-lg flex items-center justify-center text-2xl" style={{backgroundColor: '#fdf9f0'}}>
                         {getFileIcon(item.fileType)}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">{item.name}</p>
                         <p className="text-xs text-gray-500">{formatFileSize(item.size)}</p>
                       </div>
-                      <Download size={16} className="text-sage-500" />
+                      <Download size={16} className="text-gray-500" />
                     </div>
                   )}
                 </div>
@@ -213,28 +214,28 @@ function App() {
             
             {/* Media Options Dropdown */}
             {showMediaOptions && (
-              <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-soft-lg border border-cream-200 p-2 z-10 w-48">
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-xl border border-gray-200 p-2 z-10 w-48" style={{boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'}}>
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200"
+                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  <Image size={20} className="text-sage-500" />
+                  <Image size={20} className="text-gray-500" />
                   <span className="text-gray-700">Add Image</span>
                 </button>
                 
                 <button
                   onClick={() => setShowLinkInput(true)}
-                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200"
+                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  <Link size={20} className="text-sage-500" />
+                  <Link size={20} className="text-gray-500" />
                   <span className="text-gray-700">Add Link</span>
                 </button>
                 
                 <button
                   onClick={() => documentInputRef.current?.click()}
-                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200"
+                  className="flex items-center space-x-3 w-full p-3 text-left hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 >
-                  <FileText size={20} className="text-sage-500" />
+                  <FileText size={20} className="text-gray-500" />
                   <span className="text-gray-700">Add Document</span>
                 </button>
               </div>
@@ -251,7 +252,8 @@ function App() {
                   value={linkUrl}
                   onChange={(e) => setLinkUrl(e.target.value)}
                   placeholder="https://example.com"
-                  className="w-full p-3 border border-cream-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent mb-4"
+                  className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent mb-4"
+                  style={{'--tw-ring-color': '#a3b5a3'}}
                   autoFocus
                 />
                 <div className="flex space-x-3">
