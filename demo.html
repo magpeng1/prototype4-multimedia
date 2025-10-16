@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journl - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .media-card {
+            @apply bg-white rounded-xl p-4 shadow-lg border border-gray-100 transition-all duration-200 hover:shadow-xl;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fefdf8',
+                            100: '#fdf9f0',
+                            200: '#faf2e1',
+                            300: '#f5e8d0',
+                            400: '#eed9b7',
+                            500: '#e5c89b',
+                        },
+                        sage: {
+                            50: '#f6f7f6',
+                            100: '#e3e8e3',
+                            200: '#c7d2c7',
+                            300: '#a3b5a3',
+                            400: '#7d947d',
+                            500: '#5f7a5f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-cream-50 p-4">
+    <div class="max-w-2xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-sage-700 mb-2">Journl</h1>
+            <p class="text-sage-500">Capture your thoughts and memories</p>
+        </div>
+
+        <!-- Main Journal Entry -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <textarea
+                placeholder="What's on your mind today?"
+                class="w-full h-40 p-4 border border-cream-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent text-gray-700 placeholder-gray-400"
+            ></textarea>
+            
+            <!-- Sample Media Items -->
+            <div class="mt-6 space-y-3">
+                <!-- Image Card -->
+                <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 relative group">
+                    <button class="absolute top-2 right-2 p-1 bg-red-100 text-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-200">
+                        ✕
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center text-white text-2xl">
+                            🖼️
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">sunset-beach.jpg</p>
+                            <p class="text-xs text-gray-500">2.4 MB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Link Card -->
+                <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 relative group">
+                    <button class="absolute top-2 right-2 p-1 bg-red-100 text-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-200">
+                        ✕
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-cream-100 rounded-lg flex items-center justify-center">
+                            🔗
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">Interesting Article Title</p>
+                            <p class="text-xs text-sage-500 truncate">https://example.com/article</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Document Card -->
+                <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 relative group">
+                    <button class="absolute top-2 right-2 p-1 bg-red-100 text-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-200">
+                        ✕
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 bg-cream-100 rounded-lg flex items-center justify-center text-2xl">
+                            📄
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">research-notes.pdf</p>
+                            <p class="text-xs text-gray-500">1.2 MB</p>
+                        </div>
+                        <div class="text-sage-500">⬇️</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Media Button -->
+            <div class="mt-6 relative">
+                <button
+                    onclick="toggleMediaOptions()"
+                    class="flex items-center space-x-2 bg-cream-200 text-sage-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-cream-300 focus:outline-none focus:ring-2 focus:ring-cream-300 focus:ring-offset-2 w-full sm:w-auto"
+                >
+                    <span class="text-xl">+</span>
+                    <span>Add media</span>
+                </button>
+                
+                <!-- Media Options Dropdown -->
+                <div id="mediaOptions" class="hidden absolute top-full left-0 mt-2 bg-white rounded-xl shadow-xl border border-cream-200 p-2 z-10 w-48">
+                    <button class="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200">
+                        <span class="text-sage-500 text-xl">🖼️</span>
+                        <span class="text-gray-700">Add Image</span>
+                    </button>
+                    
+                    <button class="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200">
+                        <span class="text-sage-500 text-xl">🔗</span>
+                        <span class="text-gray-700">Add Link</span>
+                    </button>
+                    
+                    <button class="flex items-center space-x-3 w-full p-3 text-left hover:bg-cream-50 rounded-lg transition-colors duration-200">
+                        <span class="text-sage-500 text-xl">📄</span>
+                        <span class="text-gray-700">Add Document</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Save Button -->
+        <div class="text-center">
+            <button class="bg-sage-500 text-white px-8 py-3 text-lg rounded-lg font-medium transition-colors duration-200 hover:bg-sage-600 focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2">
+                Save Entry
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMediaOptions() {
+            const options = document.getElementById('mediaOptions');
+            options.classList.toggle('hidden');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const options = document.getElementById('mediaOptions');
+            const button = event.target.closest('button');
+            if (!button || !button.onclick) {
+                options.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

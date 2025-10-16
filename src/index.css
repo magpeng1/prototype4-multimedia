@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #fefdf8;
+  }
+}
+
+@layer components {
+  .media-card {
+    @apply bg-white rounded-xl p-4 shadow-soft border border-cream-200 transition-all duration-200 hover:shadow-soft-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-sage-500 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-sage-600 focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-cream-200 text-sage-700 px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-cream-300 focus:outline-none focus:ring-2 focus:ring-cream-300 focus:ring-offset-2;
+  }
+}
